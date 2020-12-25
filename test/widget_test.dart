@@ -8,7 +8,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:nikeshoes/main.dart';
 import 'package:nikeshoes/nike_shoes_store_app/main_nike_shoes_store_home.dart';
 
 void main() {

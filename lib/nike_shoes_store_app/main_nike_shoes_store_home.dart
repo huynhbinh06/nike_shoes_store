@@ -24,7 +24,7 @@ class NikeShoesStoreHome extends StatelessWidget {
         pageBuilder: (context, animation1, animation2) {
           return FadeTransition(
             opacity: animation1,
-            child: NikeShoesDetails(),
+            child: NikeShoesDetails(shoes: shoes,),
           );
         },
       ),
@@ -131,23 +131,32 @@ class NikeShoesItem extends StatelessWidget {
             fit: StackFit.expand,
             children: <Widget>[
               Positioned.fill(
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    color: Color(shoesItem.color),
+                child: Hero(
+                  tag: 'background_${shoesItem.model}',
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                      color: Color(shoesItem.color),
+                    ),
                   ),
                 ),
               ),
               Align(
                   alignment: Alignment.topCenter,
-                  child: SizedBox(
-                    height: itemHeight * 0.6,
-                    child: FittedBox(
-                      child: Text(
-                        shoesItem.modelNumber.toString(),
-                        style: TextStyle(
-                          color: Colors.black.withOpacity(0.05),
-                          fontWeight: FontWeight.bold,
+                  child: Hero(
+                    tag: 'number_${shoesItem.model}',
+                    child: SizedBox(
+                      height: itemHeight * 0.6,
+                      child: Material(
+                        color: Colors.transparent,
+                        child: FittedBox(
+                          child: Text(
+                            shoesItem.modelNumber.toString(),
+                            style: TextStyle(
+                              color: Colors.black.withOpacity(0.05),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -156,9 +165,12 @@ class NikeShoesItem extends StatelessWidget {
                 height: itemHeight * 1.0,
                 bottom: 50,
                 left: 60,
-                child: Image.asset(
-                  shoesItem.images.first,
-                  fit: BoxFit.contain,
+                child: Hero(
+                  tag: 'image_${shoesItem.model}',
+                  child: Image.asset(
+                    shoesItem.images.first,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
               Positioned(
