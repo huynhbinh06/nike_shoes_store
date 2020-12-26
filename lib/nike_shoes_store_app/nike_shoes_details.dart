@@ -93,7 +93,7 @@ class NikeShoesDetails extends StatelessWidget {
           centerTitle: true,
           title: Image.asset(
             'assets/nike_shoes_store/nike_logo.png',
-            height: 80,
+            height: 70,
           ),
           leading: BackButton(
             color: Colors.black,
